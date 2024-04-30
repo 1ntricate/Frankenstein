@@ -12,7 +12,7 @@ image outsideapart = "images/outsideapartment.png"
 
 ########## Characters
 #image miko Happy ="images/mikoHappy.png"
-image miko Sad = "images/mikoSad.png"
+image miko sad = "images/mikoSad.png"
 
 image miko default  = "images/mikoDefault.png"
 
@@ -57,7 +57,7 @@ label Scene1:
     "Me" "{i}I was asleep too.. {/i} "
     "Me" "Uhhh..."
 
-    #show miko sad
+    show miko sad
     "Miko" "Pleaseeee!! It will only take like 5 mins!!"
     "Me" "{i} Should I help her?  She is a stranger though..."
     "Me" "{i} Mom always told me not trust strangers.."
