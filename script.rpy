@@ -11,8 +11,10 @@ image outsideapart = "images/outsideapartment.png"
 
 
 ########## Characters
-image miko Happy ="images/mikoHappy.png"
-image miko Sad = "images/mikoSad.png"
+#image miko Happy ="images/mikoHappy.png"
+#image miko Sad = "images/mikoSad.png"
+
+image miko = "images/miko.png"
 
 
 
@@ -42,7 +44,8 @@ label Scene1:
     scene outsideapart
     "Me" "There seems to be no one?"
     "Me" "It might have been a ghost..."
-    show miko Happy
+    show miko
+    #show miko happy
     "Miko" "Hello Neighbor!"
 
     "Me" "Ahhh!! Who are you?"
@@ -54,7 +57,7 @@ label Scene1:
     "Me" "{i}I was asleep too.. {/i} "
     "Me" "Uhhh..."
 
-    show miko Sad
+    #show miko sad
     "Miko" "Pleaseeee!! It will only take like 5 mins!!"
     "Me" "{i} Should I help her?  She is a stranger though..."
     "Me" "{i} Mom always told me not trust strangers.."
