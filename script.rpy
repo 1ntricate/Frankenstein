@@ -12,9 +12,9 @@ image outsideapart = "images/outsideapartment.png"
 
 ########## Characters
 #image miko Happy ="images/mikoHappy.png"
-#image miko Sad = "images/mikoSad.png"
+image miko Sad = "images/mikoSad.png"
 
-image miko = "images/miko.png"
+image miko default  = "images/mikoDefault.png"
 
 
 
