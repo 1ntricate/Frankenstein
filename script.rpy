@@ -70,6 +70,8 @@ menu:
         jump mikoRoom
 
     "Nah... I am going to bed.":
+    Miko "..."
+    show miko scary
         jump death
 
 label mikoRoom:
@@ -83,16 +85,16 @@ label mikoRoom:
 
 
 label death:
+        play sound "audio/screamWoman" volume 0.5
         "Game Over"
         menu:
-            "Return to Tile Screen":
+            "Return to Title Screen":
                 return 
         
 
 label Scene2:
     scene bedroom
-    player "I'm finally back in my room."
-    player "I am wondering if Miko is doing feeling at home"
+    player "I'm finally back in my room. That took longer than I thought it would"
     player "I am feeling a bit tired now, I guess it's time to sleep"
     
     jump playerRoom
@@ -100,13 +102,22 @@ label Scene2:
 
 label playerRoom: 
     scene bedroom
+    play sound "audio/alarmClock" volume 0.4
+    player "Ugh, it's morning already? It feels like I got no sleep"
+    player "{i} I probably didn't with how late I went to bed last night"
+    player "{i} Last night was so strange. Who would asks a stranger for help in the middle of the night?"
+    player "{i} Miko was her name? She seemed like a very cheery person. A whole lot more happy than the other people who live around here"
+    player "{i} Something about her seemed a bit off though. Seemed a bit little uncanny even"
+    player "{i} ..."
+    player "{i} I shouldn't be so quick to judge her. It was late and we were probably just tired. It was the first time I met her after all"
+    player "{i} I need to stop thinking so much and get out of bed"
     player "I guess I should start my day."
     player "What should I do today?"
 
     menu: 
         "Work": 
             jump work
-        "Spend time with Miko":
+        "Check on Miko":
             jump mikoTime
         "Touch some grass":
             jump outside
@@ -130,3 +141,5 @@ label mikoTime:
 
 label outside: 
     player "Wow it sure it nice outside today"
+
+label movies:
