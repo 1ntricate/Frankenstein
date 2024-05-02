@@ -12,14 +12,12 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("Frank")
-
+define config.name = _("novel")
 
 ## Determines if the title given above is shown on the main menu screen. Set
 ## this to False to hide the title.
 
-define gui.show_name = True
-
+define gui.show_name = False
 
 ## The version of the game.
 
@@ -37,7 +35,7 @@ define gui.about = _p("""
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
-define build.name = "Frank"
+define build.name = "novel"
 
 
 ## Sounds and music ############################################################
@@ -62,9 +60,7 @@ define config.has_voice = True
 ## the player is at the main menu. This file will continue playing into the
 ## game, until it is stopped or another file is played.
 
-# define config.main_menu_music = "main-menu-theme.ogg"
-
-
+define config.main_menu_music =  ("audio/main-menu-theme.mp3" ) 
 ## Transitions #################################################################
 ##
 ## These variables set transitions that are used when certain events occur.
@@ -91,7 +87,6 @@ define config.after_load_transition = None
 
 define config.end_game_transition = None
 
-
 ## A variable to set the transition used when the game starts does not exist.
 ## Instead, use a with statement after showing the initial scene.
 
@@ -108,12 +103,10 @@ define config.end_game_transition = None
 
 define config.window = "auto"
 
-
 ## Transitions used to show and hide the dialogue window
 
 define config.window_show_transition = Dissolve(.2)
 define config.window_hide_transition = Dissolve(.2)
-
 
 ## Preference defaults #########################################################
 
@@ -143,7 +136,7 @@ default preferences.afm_time = 15
 ## This generally should not be changed, and if it is, should always be a
 ## literal string, not an expression.
 
-define config.save_directory = "Frank-1712552864"
+define config.save_directory = "novel-1712770340"
 
 
 ## Icon ########################################################################
