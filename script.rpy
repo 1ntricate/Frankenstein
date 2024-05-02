@@ -15,7 +15,9 @@ image mikoRoom = "images/mikoRoom.jpg"
 ########## Characters
 image miko Happy ="images/mikoHappy.png"
 image miko Sad = "images/mikoSad.png"
+image miko creepy = "images/mikoCreepy.png"
 image miko = "images/miko.png"
+
 
 
 
