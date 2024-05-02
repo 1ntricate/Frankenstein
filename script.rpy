@@ -15,6 +15,7 @@ image mikoRoom = "images/mikoRoom.jpg"
 ########## Characters
 image miko Happy ="images/mikoHappy.png"
 image miko Sad = "images/mikoSad.png"
+image miko = "images/miko.png"
 
 
 
@@ -46,7 +47,7 @@ label Scene1:
     scene outsideapart
     player "There seems to be no one?"
     player "It might have been a ghost..."
-    show miko Happy
+    show miko
     miko "Hello Neighbor!"
 
     player "Ahhh!! Who are you?"
