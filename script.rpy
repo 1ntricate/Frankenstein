@@ -11,6 +11,8 @@ image outsideapart = "images/outsideapartment.png"
 image gameover = "images/gameover.jpg"
 image office = "images/office.jpg"
 image mikoRoom = "images/mikoRoom.jpg"
+image stabbed = "images/stabbed.png"
+image bedroomDay = "images/bedroomDay.png"
 
 ########## Characters
 image miko Happy ="images/mikoHappy.png"
@@ -70,10 +72,10 @@ menu:
         jump mikoRoom
 
     "Nah... I am going to bed.":
-        jump death
+        jump stabbed
 
 label mikoRoom:
-    scene bedroom
+    scene mikoRoom
     show miko Happy
 
     miko "Welcome to my room"
@@ -81,8 +83,16 @@ label mikoRoom:
 
     jump Scene2
 
+label stabbed:
+    scene stabbed
+    "You've been stabbed..."
+    miko "Maybe you should have came to my room..."
+    scene stabbed
+
+    jump death
 
 label death:
+        scene gameover
         "Game Over"
         menu:
             "Return to Tile Screen":
@@ -99,8 +109,9 @@ label Scene2:
 
 
 label playerRoom: 
-    scene bedroom
+    scene bedroomDay
     player "I guess I should start my day."
+    scene bedroomDay
     player "What should I do today?"
 
     menu: 
@@ -115,15 +126,17 @@ label playerRoom:
     
 
 label work:
-    scene bg office
+    scene  office
     player "I sure am working hard today~"
+    scene office 
 
     jump Scene2
 
 label mikoTime:
-    scene bg mikoRoom
+    scene mikoRoom
     show miko Happy
     miko "Ah hello player~ I've been waiting for you"
+    scene mikoRoom
 
     jump Scene2
 
