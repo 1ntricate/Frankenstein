@@ -21,16 +21,26 @@ init python:
         
 
 ########### Backgrounds
-image bedroom = "images/bedroom.png"
+
 image outsideapart = "images/outsideapartment.png"
 image gameover = "images/gameover.jpg"
 image office = "images/office.jpg"
-image mikoRoom = "images/mikoRoom.jpg"
 image stabbed = "images/stabbed.png"
-image bedroomDay = "images/bedroomDay.png"
 image outside = "images/outside.jpg"
 image scenee = "images/sceneee.png" 
 image maindoor = "images/maindoor.png"
+
+image bedroom day = "images/roomDay.jpg"
+image bedroom night = "images/roomNight.jpg"
+image miko room = "images/mikosRoom.jpg"
+image theater lobby = "images/MovieTheaterLobby.jpg"
+image cinema = "images/cinema.jpg"
+image cinema movie = "images/cinemaMovie.jpg"
+image cinema explosion = "images/theaterExplosion.jpg"
+image fire exit = "images/fireExit.jpg"
+image fire exit on fire = "images/fireExitOnFire.jpg"
+image fire = "images/fireExitInFlames.jpg"
+image cinema fire = "images/theaterInFlames.jpg"
 
 ####Vo Changes 5/2/2024 added by N.
 
@@ -49,6 +59,7 @@ image wine:
 ########## Characters
 image miko Happy ="images/mikoHappy.png"
 image miko Sad = "images/mikoSad.png"
+image miko = "images/mikoDefault.png"
 
 ###Vo Changes 5/2/2024
 image player Move: 
@@ -238,6 +249,7 @@ label mikoRoom:
 
 label stabbed:
     scene stabbed
+    play sound "audio/screamWoman.mp3" 0.8
     "You've been stabbed..."
     miko "Maybe you should have came to my room..."
     scene stabbed
@@ -246,6 +258,7 @@ label stabbed:
 
 label death:
         scene gameover
+        play sound "audio/glitch.mps" 0.8
         "Game Over"
         menu:
             "Return to Tile Screen":
@@ -463,6 +476,7 @@ label scene7:
 
 label scene8:
     "Movie picked"
+    jump movies
 
 label scene9:
     "Work picked"
@@ -472,3 +486,40 @@ label scene10:
 
 label scene11:
     "Home Picked"
+
+
+label movies:
+    scene bg theater lobby
+    player "{i} I can't wait to see this movie. I've been hearing about it nonstop for days"
+    player "{i} Hopefully it's as good as my landlord made it out to be"
+    player "{i} Hmm I wonder if I should get a popcorn. Or maybe I could get some--"
+    player "..."
+    player "Miko?"
+    show miko
+    miko "Oh hi there. What a coincidence that we are both here at the same time"
+    player "Yea that's pretty crazy haha. What movie are you here to see?"
+    miko "Movie?"
+    player "Aren't you here to see a movie?"
+    miko "...Oh yea! Yea um, what movie are you here to see?"
+    player "'Agents in Australia'..."
+    show miko happy
+    miko "Oh my gosh! Me too!"
+    player "Wow really? What a coincidence"
+    miko "That is so weird"
+    miko "Well since we are going to see the same movie, maybe we can see it together?"
+    player "Um yea sure. Would you like any popcorn?"
+    show miko
+    miko "Are you getting popcorn?"
+    player "..."
+
+    scene bg cinema
+    player "Are you ok with a spot in the back?"
+    miko "Yea these seats are fine"
+    player "So Miko, how are you liking it here so far?"
+    show miko happy
+    miko "Oh it's been great. I really like the sunny weather and everyone I met has been really great"
+    player "Have you met more people recently?"
+    miko "No but I've met you"
+    player "Oh haha"
+
+    
