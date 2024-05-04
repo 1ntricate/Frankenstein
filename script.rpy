@@ -553,7 +553,7 @@ label movies:
 
 menu:
 
-    "I need to go help her:
+    "I need to go help her":
         jump saveHer
 
     "I need to save myself":
