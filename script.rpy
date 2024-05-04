@@ -522,4 +522,10 @@ label movies:
     miko "No but I've met you"
     player "Oh haha"
 
+    #...
+
+    "The lights start to dim and the projector flashes on. After a few comericals and small talk with Miko the movie finally begins"
+    scene bg cinema movie
+    "The movie was amazing. The main character agent Cody was on a suicide mission to get the hard drive containing 
+
     
