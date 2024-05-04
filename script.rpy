@@ -526,6 +526,76 @@ label movies:
 
     "The lights start to dim and the projector flashes on. After a few comericals and small talk with Miko the movie finally begins"
     scene bg cinema movie
-    "The movie was amazing. The main character agent Cody was on a suicide mission to get the hard drive containing 
+    "The movie was amazing. The main character, agent Cody, was on a suicide mission. He had only one minute to get the hard drive and get out before the bomb would activate"
+    "He moved his way around the room carefully and as fast as possible. He grabbed the hard drive with only a few seconds to spare"
+    "However, he stumbles as he trys to race out"
+    "He only has 10 seconds now as he picks himself up"
+    "He starts running out of the room and down the stairs"
+    "Now 3 seconds"
+    "2 seconds"
+    "1 second"
+    scene bg cinema explosion
+    player "What the hell?!"
+    "The screen exploded and quickly ingulfed in flames. Smoke started to fill the room"
+    player "*Cough, cough* Miko, we need to get out of here now!"
+    #show miko scared 
+    player "Come on!"
+    "I turn around and race to the emergency exit"
+    scene bg fire exit
+    "The fire was spreading fast, but I was able to dodge the flames and escape to the hall"
+    player "We're going to be okay, there's a exit right there!"
+    "I turn around to Miko and my stomach suddenly drops"
+    player "Miko?!"
+    "Miko was wasn't there! I assumed she was right behind me"
+    player "She's still in the theater!"
+    "I looked back at the theater, seeing the flames starting to reach the hall"
+    player "{i} I was barely able to get out before, I'm not sure if I'll be able to get out if I go back in"
+
+menu:
+
+    "I need to go help her:
+        jump saveHer
+
+    "I need to save myself":
+        jump saveYourself
+
+label saveHer:
+
+    player "I can't leave her there!"
+    "Trying to build up the courage I think of agent Cody and how he would fight against the chances on his mission"
+    "I then think how stupid I am to compare myself to a fictional character played by a guy who probably has his on stunt man"
+    "Never the less, I run back into the theater"
+    scene bg cinema fire
+    "It's hard to see or breathe through the smoke as I run back in"
+    player "Miko? Miko!"
+    "I see Miko still in the back of the theater, trapped behind a small flame"
+    show miko scared
+    miko "Please help me!"
+    "I take off my jacket and use it to hit the flames"
+    "After a few seconds the flames are low enough from Miko to run across"
+    "I grab her hand and run back to the exit"
+    scene bg fireExit 
+    "We both run into the hall and straight to the exit"
+
+
+label saveYourself:
+
+    player "There no way I'm going back in there!"
+    player "{i} I'm sure she will find a way out"
+    player "{i} I barely know this girl anyway, I'm not going to risk my life for her"
+    "Suddenly, out of nowhere, the flames cover the walls and floor"
+    scene bg fire exit on fire
+    player "What the hell?!"
+    player "{i} How did the fire spread so fast??"
+    "As if it were alive, the fire starts to chase me"
+    player "AHHHHH what is going on?!"
+    scene bg fire 
+    player "AAAAAHHHHHHHH"
+    play sound "manScreamingLong.mp3" 0.8
+    "You angered the flames with your selfishness and burned to death"
+    jump death
+
+    
+    
 
     
