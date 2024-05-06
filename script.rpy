@@ -166,7 +166,7 @@ label kitchen:
 
 
 label Scene1:
-    scene bedroom
+    scene maindoor
     play sound "audio/knock.mp3" volume 0.8
     play music "audio/spooky.mp3" volume 0.5
     "???" "*Knock Knock*"
@@ -193,8 +193,6 @@ label Scene1:
             show player Annoy
             player "Ahh!!! They're knocking again!!!! "
             player "Maybe I should check"
-
-
 
     "???" "Anyone there?"
 
@@ -250,7 +248,6 @@ label death:
         menu:
             "Return to Tile Screen":
                 return 
-        
 
 label Scene2:
     scene bedroom
@@ -281,8 +278,6 @@ label playerRoom:
             jump scene3
         "Check out the map":
             jump scene7
-
-
     
 ####work scene
 label work:
