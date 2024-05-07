@@ -1,11 +1,9 @@
-#Nathan N.
+﻿#Nathan N.
 
 # The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
-
-
 ######Alberto python script lockpick init
 
 init python:
@@ -19,7 +17,7 @@ init python:
         else:
             renpy.notify("Try again!")
 
-    #Vo archery mini game at park scene
+#Vo archery
     def cursor(name = None):
         if name:
             config.mouse = {'default' : [('images/cursor_' + name + '.png', 0, 0)]}
@@ -507,7 +505,7 @@ label ParkThemeScene:
     show player ok2
     player "Okay"
     jump Archery
-######ths scene is accessed through hunt.rpy
+
 label Archery:
     play music ("main-menu-theme.mp3")
     scene fon_les

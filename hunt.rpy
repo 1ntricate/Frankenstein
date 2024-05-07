@@ -10,7 +10,6 @@ transform moving_target: #target
     repeat
  
 label begin_hunt:
-    
     $ shots_fired = 0
     $ targets_hit = 0
     call hunting from _call_hunting
