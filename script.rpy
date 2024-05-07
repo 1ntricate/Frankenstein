@@ -19,7 +19,7 @@ init python:
         else:
             renpy.notify("Try again!")
 
-    #Vo archery
+    #Vo archery mini game at park scene
     def cursor(name = None):
         if name:
             config.mouse = {'default' : [('images/cursor_' + name + '.png', 0, 0)]}
