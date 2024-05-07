@@ -250,7 +250,7 @@ label mikoRoom:
 
 label stabbed:
     scene stabbed
-    play sound "audio/screamWoman.mp3" 0.8
+    play sound "audio/screamWoman.mp3" volume 0.8
     "You've been stabbed..."
     miko "Maybe you should have came to my room..."
     scene stabbed
@@ -259,7 +259,7 @@ label stabbed:
 
 label death:
         scene gameover
-        play sound "audio/glitch.mps" 0.8
+        play sound "audio/glitch.mps" volume 0.8
         "Game Over"
         menu:
             "Return to Tile Screen":
@@ -527,7 +527,7 @@ label movies:
 
     "The lights start to dim and the projector flashes on. After a few comericals and small talk with Miko the movie finally begins"
     scene bg cinema movie
-    play audio "audio/actionMusic2.mp3"
+    play audio "audio/actionMusic2.mp3" volume 0.5
     "The movie was amazing. The main character, agent Cody, was on a suicide mission. He had only one minute to get the hard drive and get out before the bomb would activate"
     "He moved his way around the room carefully and as fast as possible. He grabbed the hard drive with only a few seconds to spare"
     "However, he stumbles as he trys to race out"
@@ -537,7 +537,7 @@ label movies:
     "2 seconds"
     "1 second"
     scene bg cinema explosion
-    play audio "audio/explosion.mp3"
+    play audio "audio/explosion.mp3" volume 0.5
     player "What the hell?!"
     "The screen exploded and quickly ingulfed in flames. Smoke started to fill the room"
     player "*Cough, cough* Miko, we need to get out of here now!"
@@ -569,7 +569,7 @@ label saveHer:
     "I then think how stupid I am to compare myself to a fictional character played by a guy who probably has his on stunt man"
     "Never the less, I run back into the theater"
     scene bg cinema fire
-    play audio "audio/fire.mp3"
+    play audio "audio/fire.mp3" volume 0.5
     "It's hard to see or breathe through the smoke as I run back in"
     player "Miko? Miko!"
     "I see Miko still in the back of the theater, trapped behind a small flame"
@@ -598,7 +598,7 @@ label saveYourself:
     player "AHHHHH what is going on?!"
     scene bg fire 
     player "AAAAAHHHHHHHH"
-    play sound "manScreamingLong.mp3" 0.8
+    play sound "manScreamingLong.mp3" volume 0.8
     "You angered the flames with your selfishness and burned to death"
     jump death
 
