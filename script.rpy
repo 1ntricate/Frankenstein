@@ -26,7 +26,7 @@ image outsideapart = "images/outsideapartment.png"
 image gameover = "images/gameover.jpg"
 image office = "images/office.jpg"
 image stabbed = "images/stabbed.png"
-image outside = "images/outside.jpg"
+#image outside = "images/outside.jpg"
 image scenee = "images/sceneee.png" 
 image maindoor = "images/maindoor.png"
 
@@ -63,51 +63,51 @@ image miko = "images/mikoDefault.png"
 image miko shocked = "images/mikoShocked.png"
 
 ###Vo Changes 5/2/2024
-image player Move: 
-    "images/playerMove.png" 
-    xalign 0.5 yalign 0.5 
-    size (700, 700)
+#image player Move: 
+    #"images/playerMove.png" 
+    #xalign 0.5 yalign 0.5 
+    #size (700, 700)
 
-image player Annoy: 
-    "images/playerAnnoy.png" 
-    xalign 0.5 yalign 0.5 
-    size (700, 700)
-image player Ok: 
-    "images/playerOk.png" 
-    xalign 0.5 yalign 0.5 
-    size (650, 700)
-image player Nap: 
-    "images/playerNap.png" 
-    xalign 0.5 yalign 0.5 
-    size (1000, 1000)
-image player Tired: 
-    "images/playerTired.png" 
-    xalign 0.5 yalign 0.5 
-    size (1000, 1000)
-image player bike: 
-    "images/playerBike.png"
-    xalign 1.0 yalign 0.5 
-    size (1000, 1000)
-image player Suprised: 
-    "images/playerSurprised.png" 
-    xalign 1.0 yalign 0.5 
-    size (1000, 1000)
-image player OJ: 
-    "images/playerOJ.png" 
-    xalign 1.0 yalign 0.5 
-    size (1000, 1000)
-image player Make:
-    "images/playerMake.png" 
-    xalign 0.5 yalign 0.5 
-    size (1000, 1000)
-image player Shock: 
-    "images/playerShock.png" 
-    xalign 1.0 yalign 0.5 
-    size (1000, 1000)
-image player Relax: 
-    "images/playerRelax.png" 
-    xalign 1.0 yalign 0.5 
-    size (1000, 1000)
+#image player Annoy: 
+    #"images/playerAnnoy.png" 
+    #xalign 0.5 yalign 0.5 
+    #size (700, 700)
+#image player Ok: 
+    #"images/playerOk.png" 
+    #xalign 0.5 yalign 0.5 
+    #size (650, 700)
+#image player Nap: 
+    #"images/playerNap.png" 
+    #xalign 0.5 yalign 0.5 
+    #size (1000, 1000)
+#image player Tired: 
+    #"images/playerTired.png" 
+    #xalign 0.5 yalign 0.5 
+    #size (1000, 1000)
+#image player bike: 
+    #"images/playerBike.png"
+    #xalign 1.0 yalign 0.5 
+    #size (1000, 1000)
+#image player Suprised: 
+    #"images/playerSurprised.png" 
+    #xalign 1.0 yalign 0.5 
+    #size (1000, 1000)
+#image player OJ: 
+   # "images/playerOJ.png" 
+    #xalign 1.0 yalign 0.5 
+    #size (1000, 1000)
+#image player Make:
+ #   "images/playerMake.png" 
+  #  xalign 0.5 yalign 0.5 
+   # size (1000, 1000)
+#image player Shock: 
+ #   "images/playerShock.png" 
+  #  xalign 1.0 yalign 0.5 
+   # size (1000, 1000)
+#image player Relax: 
+ #   "images/playerRelax.png" 
+  #  xalign 1.0 yalign 0.5 
+   # size (1000, 1000)
 ######Vo Changes 5/2/204 added by N.
 
 define miko = Character("Miko", color="#FF0000")
@@ -130,23 +130,23 @@ label Scene0:
             play sound "audio/rain.wav" volume 0.8
             pause 0.5
             scene raining
-            show player Suprised
+            #show player Suprised
             player "Wait Whatttt the hell "
             player "Maybe let moving tommorrow"
             scene morning
         "YAYYY, Let's move to new home. I'm so excited...":
             player "Go ! Go !"
-    show player Ok 
+    #show player Ok 
     player "Finally Done"
     pause 0.5
     scene scenee
-    show player Relax
+    #show player Relax
 
     player "AHH! Today such an busy day !!!"
     player "Should I take a nap?"
     menu: 
         "So lazy.. Maybe gonna take a nap then":
-            show player Nap
+            #show player Nap
             player "Z Z Z Z"
             player "Nap time is the best"
         "No, Maybe go to make some drink in the kitchen":
@@ -159,10 +159,10 @@ label kitchen:
     menu: 
         "Making Orange juice sounds healthy":
             "Me" "......"
-            show player Make
+            #show player Make
             "Me" "Waiting for orange juice"
             "Me" "Yay"
-            show player OJ
+            #show player OJ
             "Me" "Hmmm.. Delicicous"
             "Me" "Perfect"
         "Cocktail or Red Wine, etc. Sounds not bad":
@@ -171,7 +171,7 @@ label kitchen:
             scene kitchen
             "Me" "Ahhhhhhh Shit...."
             "Me" "I should not drink this"
-            show player Shock
+            #show player Shock
             pause 1.0
             
 
