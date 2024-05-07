@@ -1,4 +1,4 @@
-﻿#Nathan N.
+#Nathan N.
 
 # The script of the game goes in this file.
 
@@ -18,7 +18,14 @@ init python:
             renpy.jump("scene4")
         else:
             renpy.notify("Try again!")
-        
+
+    #Vo archery
+    def cursor(name = None):
+        if name:
+            config.mouse = {'default' : [('images/cursor_' + name + '.png', 0, 0)]}
+        else:
+            config.mouse = None
+    Cursor = renpy.curry(cursor)
 
 ########### Backgrounds
 image bedroom = "images/bedroom.png"
@@ -32,8 +39,10 @@ image outside = "images/outside.jpg"
 image scenee = "images/sceneee.png" 
 image maindoor = "images/maindoor.png"
 
-####Vo Changes 5/2/2024 added by N.
-
+#### VoHongVy Changes 5/2/2024 added by N.
+image parkscene:
+    "images/parkscene.png"
+    size(1920, 1080)
 image morning: 
     "images/morningapartment.png" 
     size(1920, 1080)
@@ -45,19 +54,23 @@ image raining = Movie(play="images/rain.ogv")
 image wine: 
     "images/wine.png" 
     size(1920, 1080)
-
+image phone:
+    "images/phone.png"
+    size(1920,1080)
 ########## Characters
 image miko Happy ="images/mikoHappy.png"
 image miko Sad = "images/mikoSad.png"
-
-###Vo Changes 5/2/2024
+###Some add by Vo May 7
+image miko Laugh = "images/mikolaugh.png"
+image miko Normal = "images/mikonormal.png"
+### VoHongVy Changes 5/2/2024
 image player Move: 
     "images/playerMove.png" 
-    xalign 0.5 yalign 0.5 
-    size (700, 700)
+    xalign 0.8 yalign 0.5 
+    size (1000, 1000)
 
 image player Annoy: 
-    "images/playerAnnoy.png" 
+    "images/playerAnnoyed.png" 
     xalign 0.5 yalign 0.5 
     size (700, 700)
 image player Ok: 
@@ -96,19 +109,32 @@ image player Relax:
     "images/playerRelax.png" 
     xalign 1.0 yalign 0.5 
     size (1000, 1000)
-######Vo Changes 5/2/204 added by N.
+image player ok2: 
+    "images/playerok2.png" 
+    xalign 1.0 yalign 0.5 
+    size (1000, 1000)
+image player No: 
+    "images/playersaidno.png" 
+    xalign 1.0 yalign 0.5 
+    size (1000, 1000)
+#### Vo archery minigame at the park scene
+image fon_les: 
+    "images/parkdark.jpg"
+    size(1920, 1080)
+
+###### VoHongVy Changes 5/2/204 added by N.
 
 define miko = Character("Miko", color="#FF0000")
 define player = Character("Me", color="#0000FF")
-
+define e = Character('Virus', color="#c8ffc8")
 
 label start:
-    "Hello World"
     voice "audio/main-story1.mp3"
     "Our main character, who is moving to the new apartment, is excited to start fresh and make new neighbor friends. 
     A mysterious story ensues when strange occurrences begin happening in the building,leading our characters to uncover 
     dark secrets hidden within the walls of their new home. Since his home moving made him so tired, he felt sleepy and 
     woke up to hear a mysterious laugh and someone knocking his door, sparking a sense of unease within him."
+
 ####Prologue Scene
 label Scene0:
 #####Moving Scene
@@ -126,6 +152,7 @@ label Scene0:
             player "Go ! Go !"
     show player Ok 
     player "Finally Done"
+    show player Move
     pause 0.5
     scene scenee
     show player Relax
@@ -161,26 +188,21 @@ label kitchen:
             "Me" "I should not drink this"
             show player Shock
             pause 1.0
-            
 
-
+### Some adjustation by Vo May 3rd
 
 label Scene1:
     scene maindoor
     play sound "audio/knock.mp3" volume 0.8
     play music "audio/spooky.mp3" volume 0.5
     "???" "*Knock Knock*"
-
+    
     player "Who's knocking on my door so late?"
     player "What time is it right now?"
     player "12am!? Who's up so late at this hour?"
     player "Should I pick it up?  It might that manga I ordered earlier this week."
     player "Wait.. No way they would come this late?"
     play sound "audio/knock.mp3" volume 0.8
-
-    scene maindoor
-    player "Ahhh!! They're knocking again.  "
-    scene maindoor
 
     menu: 
         "Come and open the door to check.":
@@ -230,8 +252,6 @@ label mikoRoom:
     show miko Happy
 
     miko "Welcome to my room"
-
-
     jump Scene2
 
 label stabbed:
@@ -248,7 +268,7 @@ label death:
         menu:
             "Return to Tile Screen":
                 return 
-
+        
 label Scene2:
     scene bedroom
     player "I'm finally back in my room."
@@ -278,7 +298,7 @@ label playerRoom:
             jump scene3
         "Check out the map":
             jump scene7
-    
+
 ####work scene
 label work:
     scene  office
@@ -311,7 +331,6 @@ label scene3:
     show lock_cylinder
     player "I need to find a way to open this door."
     call screen Lockpicking_mini_game
-
 
 screen Lockpicking_mini_game:
     draggroup:
@@ -463,8 +482,53 @@ label scene9:
     "Work picked"
 
 label scene10:
-    "Park picked"
+    scene phone
+    show miko Happy 
+    miko "Do you wanna hang out to theme park with me?"
+    show player Suprised
+    menu: 
+        "Yes, It'll be fun":
+            show miko Laugh 
+            miko "okay, let's go"
+        "No, I'm kinda lazy":
+            show player No
+            player "No, thank you"
+            show miko Sad
+            scene outsideapart
+            "Then, you were still dragged to the park by the miko"
+    jump ParkThemeScene
 
-label scene11:
-    "Home Picked"
+label ParkThemeScene:
+    scene parkscene
+    show miko Normal
+    miko "Let's play a mini game"
+    show miko Happy
+    miko "I want to play archery game over there"
+    show player ok2
+    player "Okay"
+    jump Archery
 
+label Archery:
+    play music ("main-menu-theme.mp3")
+    scene fon_les
+    show miko Happy
+    miko "Help me playyy"
+    call begin_hunt from _call_begin_hunt
+
+    if targets_hit == 0: # on 0 hits
+        $ cursor() #reset broom
+        scene fon_les with dissolve
+        show miko Happy
+        miko "Let's try again together"
+        scene fon_les with dissolve
+        show miko Happy
+        
+    if targets_hit > 0: # on more than 0 hits
+        $ cursor() #resets the broom
+        e "[targets_hit] times hit. "
+        scene fon_les with dissolve
+        show miko Laugh
+        miko "Wonderful, Thank you!"   
+ 
+    jump Scene2
+ 
