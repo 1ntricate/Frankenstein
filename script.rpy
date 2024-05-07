@@ -47,9 +47,9 @@ image cinema fire = "images/theaterInFlames.jpg"
 image morning: 
     "images/morningapartment.png" 
     size(1920, 1080)
-image kitchen: 
-    "images/kitchen.png" 
-    size(1920, 1080)
+#image kitchen: 
+   # "images/kitchen.png" 
+   # size(1920, 1080)
 image outsideapart = "images/outsideapartment.png"
 image raining = Movie(play="images/rain.ogv")
 image wine: 
@@ -127,7 +127,7 @@ label Scene0:
     scene morning
     menu:
         "Waaahhh, It such a beautiful day outside":
-            play sound "audio/rain.wav" volume 0.8
+            #play sound "audio/rain.wav" volume 0.8
             pause 0.5
             scene raining
             #show player Suprised
@@ -154,7 +154,7 @@ label Scene0:
 
 ######Drinking Scene
 label kitchen:
-    scene kitchen
+    #scene kitchen
     "Me" "What should I drink tonight?"
     menu: 
         "Making Orange juice sounds healthy":
