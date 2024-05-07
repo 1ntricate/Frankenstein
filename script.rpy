@@ -507,7 +507,7 @@ label ParkThemeScene:
     show player ok2
     player "Okay"
     jump Archery
-
+######ths scene is accessed through hunt.rpy
 label Archery:
     play music ("main-menu-theme.mp3")
     scene fon_les
