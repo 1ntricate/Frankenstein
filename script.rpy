@@ -60,6 +60,7 @@ image wine:
 image miko Happy ="images/mikoHappy.png"
 image miko Sad = "images/mikoSad.png"
 image miko = "images/mikoDefault.png"
+image miko shocked = "images/mikoShocked.png"
 
 ###Vo Changes 5/2/2024
 image player Move: 
@@ -526,6 +527,7 @@ label movies:
 
     "The lights start to dim and the projector flashes on. After a few comericals and small talk with Miko the movie finally begins"
     scene bg cinema movie
+    play audio "audio/actionMusic2.mp3"
     "The movie was amazing. The main character, agent Cody, was on a suicide mission. He had only one minute to get the hard drive and get out before the bomb would activate"
     "He moved his way around the room carefully and as fast as possible. He grabbed the hard drive with only a few seconds to spare"
     "However, he stumbles as he trys to race out"
@@ -535,10 +537,11 @@ label movies:
     "2 seconds"
     "1 second"
     scene bg cinema explosion
+    play audio "audio/explosion.mp3"
     player "What the hell?!"
     "The screen exploded and quickly ingulfed in flames. Smoke started to fill the room"
     player "*Cough, cough* Miko, we need to get out of here now!"
-    #show miko scared 
+    show miko shocked 
     player "Come on!"
     "I turn around and race to the emergency exit"
     scene bg fire exit
@@ -566,16 +569,20 @@ label saveHer:
     "I then think how stupid I am to compare myself to a fictional character played by a guy who probably has his on stunt man"
     "Never the less, I run back into the theater"
     scene bg cinema fire
+    play audio "audio/fire.mp3"
     "It's hard to see or breathe through the smoke as I run back in"
     player "Miko? Miko!"
     "I see Miko still in the back of the theater, trapped behind a small flame"
-    show miko scared
+    show miko shocked
     miko "Please help me!"
     "I take off my jacket and use it to hit the flames"
     "After a few seconds the flames are low enough from Miko to run across"
     "I grab her hand and run back to the exit"
     scene bg fireExit 
     "We both run into the hall and straight to the exit"
+    #scene bg outside theater
+    #More dialoge
+    jump scene2
 
 
 label saveYourself:
