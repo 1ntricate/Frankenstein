@@ -117,6 +117,7 @@ define player = Character("Me", color="#0000FF")
 
 label start:
     "Hello World"
+    scene test
     scene cinema
     scene fireExit
  #  voice "audio/main-story1.mp3"
