@@ -57,8 +57,8 @@ image wine:
     size(1920, 1080)
 
 ########## Characters
-image miko Happy ="images/mikoHappy.png"
-image miko Sad = "images/mikoSad.png"
+image miko happy ="images/mikoHappy.png"
+image miko sad = "images/mikoSad.png"
 image miko = "images/mikoDefault.png"
 image miko shocked = "images/mikoShocked.png"
 
@@ -213,7 +213,7 @@ label Scene1:
     scene outsideapart
     player "There seems to be no one?"
     player "It might have been a ghost..."
-    show miko Happy
+    show miko
     miko "Hello Neighbor!"
 
     player "Ahhh!! Who are you?"
@@ -225,7 +225,7 @@ label Scene1:
     player "{i}I was asleep too.. {/i} "
     player "Uhhh..."
 
-    show miko Sad
+    show miko sad
     miko "Pleaseeee!! It will only take like 5 mins!!"
     player "{i} Should I help her?  She is a stranger though..."
     player "{i} Mom always told me not trust strangers.."
@@ -241,7 +241,7 @@ menu:
 
 label mikoRoom:
     scene mikoRoom
-    show miko Happy
+    show miko happy
 
     miko "Welcome to my room"
 
