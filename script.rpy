@@ -117,9 +117,10 @@ define player = Character("Me", color="#0000FF")
 
 label start:
     "Hello World"
-    scene test
+    scene test.png
     scene cinema
-    scene fireExit
+    scene fireExit.jpg
+
  #  voice "audio/main-story1.mp3"
     "Our main character, who is moving to the new apartment, is excited to start fresh and make new neighbor friends. 
     A mysterious story ensues when strange occurrences begin happening in the building,leading our characters to uncover 
