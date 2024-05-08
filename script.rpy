@@ -43,8 +43,6 @@ image fire = "images/fireExitInFlames.jpg"
 image cinema fire = "images/theaterInFlames.jpg"
 
 ####Vo Changes 5/2/2024 added by N.
-scene cinema
-scene fireExit
 
 image morning: 
     "images/morningapartment.png" 
@@ -118,7 +116,9 @@ define player = Character("Me", color="#0000FF")
 
 label start:
     "Hello World"
- #   voice "audio/main-story1.mp3"
+    scene cinema
+    scene fireExit
+ #  voice "audio/main-story1.mp3"
     "Our main character, who is moving to the new apartment, is excited to start fresh and make new neighbor friends. 
     A mysterious story ensues when strange occurrences begin happening in the building,leading our characters to uncover 
     dark secrets hidden within the walls of their new home. Since his home moving made him so tired, he felt sleepy and 
