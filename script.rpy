@@ -43,6 +43,8 @@ image fire = "images/fireExitInFlames.jpg"
 image cinema fire = "images/theaterInFlames.jpg"
 
 ####Vo Changes 5/2/2024 added by N.
+scene cinema
+scene fireExit
 
 image morning: 
     "images/morningapartment.png" 
@@ -259,7 +261,7 @@ label stabbed:
 
 label death:
         scene gameover
-        play sound "audio/glitch.mps" volume 0.8
+        play sound "audio/glitch.mp3" volume 0.8
         "Game Over"
         menu:
             "Return to Tile Screen":
