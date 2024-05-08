@@ -41,6 +41,7 @@ image fire exit = "images/fireExit.jpg"
 image fire exit on fire = "images/fireExitOnFire.jpg"
 image fire = "images/fireExitInFlames.jpg"
 image cinema fire = "images/theaterInFlames.jpg"
+image test = "images/test.png"
 
 ####Vo Changes 5/2/2024 added by N.
 
