@@ -58,7 +58,7 @@ image wine:
 
 ########## Characters
 image miko happy ="images/mikoHappy.png"
-image miko sad = "images/mikosad.png"
+image miko Sad = "images/mikoSad.png"
 image miko = "images/mikoDefault.png"
 image miko shocked = "images/mikoShocked.png"
 
