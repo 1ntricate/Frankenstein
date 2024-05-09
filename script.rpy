@@ -1,4 +1,4 @@
-﻿#Nathan N.
+#Nathan N.
 
 # The script of the gaplayer goes in this file.
 
@@ -142,8 +142,8 @@ label start:
     voice "audio/main-story1.mp3"
     "Our main character, who is moving to the new apartplayernt, is excited to start fresh and make new neighbor friends. 
     A mysterious story ensues when strange occurrences begin happening in the building,leading our characters to uncover 
-    dark secrets hidden within the walls of their new hoplayer. Since his hoplayer moving made him so tired, he felt sleepy and 
-    woke up to hear a mysterious laugh and soplayerone knocking his door, sparking a sense of unease within him."
+    dark secrets hidden within the walls of their new home. After mvoing into the new home, he is so tired, he felt sleepy and 
+    woke up to hear a mysterious laugh and somone knocking on his door, sparking a sense of unease within him."
 
 ####Prologue Scene
 label Scene0:
@@ -158,7 +158,7 @@ label Scene0:
             player "Wait Whatttt the hell "
             player "Maybe let moving tommorrow"
             scene morning
-        "YAYYY, Let's move to new hoplayer. I'm so excited...":
+        "YAYYY, Let's move to new house. I'm so excited...":
             player "Go ! Go !"
     show player Ok 
     player "Finally Done"
@@ -173,8 +173,8 @@ label Scene0:
         "So lazy.. Maybe gonna take a nap then":
             show player Nap
             player "Z Z Z Z"
-            player "Nap tiplayer is the best"
-        "No, Maybe go to make soplayer drink in the kitchen":
+            player "Nap time is the best"
+        "No, Maybe I'll whip up a drink in the kitchen":
             jump kitchen
 
 ######Drinking Scene
@@ -208,14 +208,14 @@ label Scene1:
     "???" "*Knock Knock*"
     
     player "Who's knocking on my door so late?"
-    player "What tiplayer is it right now?"
+    player "What time is it right now?"
     player "12am!? Who's up so late at this hour?"
     player "Should I pick it up?  It might that manga I ordered earlier this week."
-    player "Wait.. No way they would coplayer this late?"
+    player "Wait.. No way they would come this late?"
     play sound "audio/knock.mp3" volume 0.8
 
     menu: 
-        "Coplayer and open the door to check.":
+        "Go and open the door to check.":
             show player Ok
             player "...."
             player "Alright, let check it, just in case"
@@ -237,8 +237,8 @@ label Scene1:
     player "Ahhh!! Who are you?"
 
     miko "Hello, I am Miko.  I just recently moved in today."
-    miko "It's a bit late right now, and all my stuff is outside, I was wondering if you could help player move soplayer boxes inside?"
-    miko "You're the only one that openened the door, I knocked on soplayer other doors earlier, but it seeplayerd like everyone else seeplayerd asleep."
+    miko "It's a bit late right now, and all my stuff is outside, I was wondering if you could help me move some boxes inside?"
+    miko "You're the only one that openened the door, I knocked on some other doors earlier, but it seemed like everyone else is asleep."
 
     player "{i}I was asleep too.. {/i} "
     player "Uhhh..."
@@ -261,20 +261,20 @@ label mikoRoom:
     scene mikoRoom
     show miko Happy
 
-    miko "Welcoplayer to my room"
+    miko "Welcome to my room"
     jump Scene2
 
 label stabbed:
     scene stabbed
     "You've been stabbed..."
-    miko "Maybe you should have caplayer to my room..."
+    miko "Maybe you should have helped me..."
     scene stabbed
 
     jump death
 
 label death:
-        scene gaplayerover
-        "Gaplayer Over"
+        scene gameover
+        "Game Over"
         menu:
             "Return to Tile Screen":
                 return 
@@ -282,8 +282,8 @@ label death:
 label Scene2:
     scene bedroom
     player "I'm finally back in my room."
-    player "I am wondering if Miko is doing feeling at hoplayer"
-    player "I am feeling a bit tired now, I guess it's tiplayer to sleep"
+    player "I am wondering if Miko is feeling at home in her new apartment."
+    player "I am feeling a bit tired now, I guess it's time to sleep"
     
     jump playerRoom
 
@@ -298,9 +298,9 @@ label playerRoom:
     menu: 
         "Work": 
             jump work
-        "Spend tiplayer with Miko":
-            jump mikoTiplayer
-        "Touch soplayer grass":
+        "Spend time with Miko":
+            jump mikoTime
+        "Touch some grass":
             jump outside
         "Sleep the whole day":
             jump Scene4
@@ -313,7 +313,7 @@ label work:
     scene  office
     player "*** Hours later ***"
     show player OJ at center
-    player "Man.. 5 p.m can't coplayer soon enough"
+    player "Man.. 5 p.m can't come soon enough"
     show miko Happy at right with moveinright 
     show player Shock at center with dissolve
     miko "Heyyyy neighbor!!! I though that was you!!"
@@ -343,7 +343,7 @@ label work2:
     jump Scene2
 ####miko scene
 
-label mikoTiplayer:
+label mikoTime:
     scene mikoRoom
     show miko Happy
     miko "Ah hello player~ I've been waiting for you"
@@ -409,12 +409,12 @@ screen Lockpicking_mini_gaplayer:
 
 label scene4:
     play sound "audio/creak.mp3"
-    # Set varaiables for tiplayerr
-    $ tiplayer = 90
-    $ tiplayerr_range = 90
+    # Set varaiables for timer
+    $ time = 90
+    $ timer_range = 90
 
-    # Set a boolean value to keep track of gaplayer status
-    $ gaplayer_over = False
+    # Set a boolean value to keep track of game status
+    $ game_over = False
 
     #Dictionary to keep track if items has been clicked
     default clickable_items = {1: True, 2: True, 3: True, 4: True}
@@ -424,7 +424,7 @@ label scene4:
     play sound "audio/shower.mp3" 
     player "*Whispers*  Miko?? {i} She's showering..."
     player "Something feels off..."
-    call screen items_screen
+    call screen items_screen 
 
 screen items_screen:
     modal True # Prevents user from leaving screen until minigaplayer is done
@@ -432,10 +432,10 @@ screen items_screen:
 
    
     # IF tiplayer is less than 0 and gaplayer_over is True, jump to Fail label
-    timer 0.01 repeat True action If(tiplayer > 0 and not gaplayer_over, true = SetVariable('tiplayer', tiplayer - 0.1),
+    timer 0.01 repeat True action If(time > 0 and not game_over, true = SetVariable('time', time - 0.1),
     false = [Hide('countdown'), Jump("Fail")])
    
-    bar value tiplayer range tiplayerr_range xalign 0.5 yalign 0.1 xmaximum 300 at alpha_disolve
+    bar value time range timer_range xalign 0.5 yalign 0.1 xmaximum 300 at alpha_disolve
 
     # Shows the items unitl they are clicked
     showif clickable_items[1]:
@@ -471,7 +471,7 @@ screen items_screen:
             ypos 0.8
             idle "bg_knife"
             action [SetDict(clickable_items, 4, False), Notify("A bloody kitchen knife..."),
-                SetVariable('gaplayer_over', True), Jump("Success")]
+                SetVariable('game_over', True), Jump("Success")]
 
 # Adds a fade effect to the tiplayerr bar
 transform alpha_disolve:
@@ -497,8 +497,8 @@ label scene6:
     show player Ok at left with moveinleft
     show miko Creepy at center
     player "Heyyyy Miko... What's going on?"
-    miko "Hey, I just wanted to apoligize about the noise earlier."
-    miko " I was trying smash a spider and I ended up knocking over soplayer stuff."
+    miko "Hey, I just wanted to apologize about the noise earlier."
+    miko " I was trying smash a spider and I ended up knocking over some stuff."
     miko "I'm sorry if I woke you up."
 
     menu: 
@@ -529,6 +529,7 @@ label scene7:
             play sound "audio/sharp.mp3"
             scene black with hpunch
             call screen Death
+            return
         "I believe you":
             miko "Thank you, I knew you would understand."
             jump ending
@@ -553,8 +554,8 @@ screen MapUI:
         action Jump("scene8")
     imagebutton:
         focus_mask True
-        idle "Hoplayer.png"
-        hover "Hoplayer_hover.png"
+        idle "Home.png"
+        hover "Home_hover.png"
         action Jump("Scene2")
     imagebutton:
         focus_mask True
@@ -566,39 +567,40 @@ screen MapUI:
         idle "Park.png"
         hover "Park_hover.png"
         action Jump("scene10")
-### Vo edit image position
+
+
 label scene10:
     scene phone
-    show miko Happy at right
-    miko "Do you wanna hang out to theplayer park with player?"
-    show player Suprised at left
+    show miko Happy 
+    miko "Do you wanna hang out to the park with player?"
+    show player Suprised
     menu: 
-        "Yeah, It'll be fun":
-            show miko Laugh at center 
+        "Yes, It'll be fun":
+            show miko Laugh 
             miko "okay, let's go"
-        "Nooooo, I'm kinda lazy right now":
-            show player No at right
+        "No, I'm kinda lazy":
+            show player No
             player "No, thank you"
-            show miko Sad at left
+            show miko Sad
             scene outsideapart
             "Then, you were still dragged to the park by the miko"
-    jump ParkTheplayerScene
+    jump ParkThemerScene
 
-label ParkTheplayerScene:
+label ParkThemerScene:
     scene parkscene
-    show miko Normal at center
-    miko "Let's play a mini game"
-    show miko Happy at center
-    miko "I want to play archery gaplayer over there"
-    show player Ok2 at right
+    show miko Normal
+    miko "Let's play a mini game!!"
+    show miko Happy
+    miko "I want to play archery game over there"
+    show player Ok2
     player "Okay"
     jump Archery
 
 label Archery:
-    play music ("main-playernu-theplayer.mp3")
+    play music ("main-menu-theme.mp3")
     scene fon_les
     show miko Happy
-    miko "Help player playyy"
+    miko "Help me playyy!!"
     call begin_hunt from _call_begin_hunt
 
     if targets_hit == 0: # on 0 hits
@@ -621,4 +623,5 @@ label Archery:
 label ending: 
     scene black
     call screen goodEnding
+ 
  
