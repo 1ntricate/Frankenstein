@@ -566,32 +566,31 @@ screen MapUI:
         idle "Park.png"
         hover "Park_hover.png"
         action Jump("scene10")
-
-
+### Vo edit image position
 label scene10:
     scene phone
-    show miko Happy 
+    show miko Happy at right
     miko "Do you wanna hang out to theplayer park with player?"
-    show player Suprised
+    show player Suprised at left
     menu: 
-        "Yes, It'll be fun":
-            show miko Laugh 
+        "Yeah, It'll be fun":
+            show miko Laugh at center 
             miko "okay, let's go"
-        "No, I'm kinda lazy":
-            show player No
+        "Nooooo, I'm kinda lazy right now":
+            show player No at right
             player "No, thank you"
-            show miko Sad
+            show miko Sad at left
             scene outsideapart
             "Then, you were still dragged to the park by the miko"
     jump ParkTheplayerScene
 
 label ParkTheplayerScene:
     scene parkscene
-    show miko Normal
-    miko "Let's play a mini gaplayer"
-    show miko Happy
+    show miko Normal at center
+    miko "Let's play a mini game"
+    show miko Happy at center
     miko "I want to play archery gaplayer over there"
-    show player Ok2
+    show player Ok2 at right
     player "Okay"
     jump Archery
 
