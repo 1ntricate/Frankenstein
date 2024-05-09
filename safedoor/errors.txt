@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 72: positional argument follows keyword argument
+    t = Transform(child = dial_image, zoom 0.5)
+                                            ^
+
+Ren'Py Version: Ren'Py 8.2.1.24030407
+Mon May  6 10:43:21 2024
