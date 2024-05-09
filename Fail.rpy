@@ -1,5 +1,5 @@
 label Fail:
-    show lucy mad
+    show  player Suprised
     show miko normal at left with moveinleft
     miko "You're not supposed to be in here..."
     miko "I'm sorry, but I can't let you leave."
