@@ -36,7 +36,7 @@ image miko room = "images/mikosRoom.jpg"
 image theater lobby = "images/MovieTheaterLobby.jpg"
 image cinema = "images/cinema.jpg"
 image cinema movie = "images/cinemaMovie.jpg"
-image cinema explosion = "images/theaterExplosion.jpg"
+image cinema explosion = "images/theaterExplosion2.jpg"
 image fire exit = "images/fireExit.jpg"
 image fire exit on fire = "images/fireExitOnFire.jpg"
 image fire = "images/fireExitInFlames.jpg"
@@ -495,8 +495,8 @@ label scene11:
 
 
 label movies:
-    scene test
-    
+
+    scene theater lobby
     player "{i} I can't wait to see this movie. I've been hearing about it nonstop for days"
     player "{i} Hopefully it's as good as my landlord made it out to be"
     player "{i} Hmm I wonder if I should get a popcorn. Or maybe I could get some--"
@@ -519,9 +519,7 @@ label movies:
     miko "Are you getting popcorn?"
     player "..."
 
-    
     scene cinema
- 
     player "Are you ok with a spot in the back?"
     miko "Yea these seats are fine"
     player "So Miko, how are you liking it here so far?"
@@ -530,8 +528,6 @@ label movies:
     player "Have you met more people recently?"
     miko "No but I've met you"
     player "Oh haha"
-
-    #...
 
     "The lights start to dim and the projector flashes on. After a few comericals and small talk with Miko the movie finally begins"
     scene cinema movie

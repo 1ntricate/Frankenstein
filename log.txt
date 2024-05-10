@@ -1,13 +1,13 @@
-2024-05-10 05:47:26 UTC
+2024-05-10 17:51:52 UTC
 macOS-14.3.1-arm64-arm-64bit
 Ren'Py 8.2.1.24030407
 
 Early init took 0.03s
-Loading error handling took 0.08s
+Loading error handling took 0.11s
 Loading script took 0.14s
 Loading save slot metadata took 0.04s
 Loading persistent took 0.00s
-Running init code took 0.13s
+Running init code took 0.19s
 Loading analysis data took 0.01s
 Analyze and compile ATL took 0.00s
 Reloading save slot metadata took 0.01s
@@ -28,7 +28,7 @@ Prepare screens took 0.03s
 Save pyanalysis. took 0.00s
 Save bytecode. took 0.00s
 Running _start took 0.00s
-Interface start took 0.35s
+Interface start took 0.42s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1440, 900)
@@ -38,25 +38,11 @@ Vendor: "b'Apple'"
 Renderer: b'Apple M1'
 Version: b'2.1 Metal - 88'
 Display Info: None
-Screen sizes: virtual=(1280, 720) physical=(1440, 792) drawable=(2880, 1584)
+Screen sizes: virtual=(1280, 720) physical=(1410, 793) drawable=(2820, 1586)
 Maximum texture size: 4096x4096
-Screen sizes: virtual=(1280, 720) physical=(1440, 792) drawable=(2880, 1584)
-Maximum texture size: 4096x4096
-Screen sizes: virtual=(1280, 720) physical=(1440, 792) drawable=(2880, 1800)
+Screen sizes: virtual=(1280, 720) physical=(1410, 793) drawable=(2880, 1800)
 Maximum texture size: 4096x4096
 Screen sizes: virtual=(1280, 720) physical=(1440, 900) drawable=(2880, 1800)
 Maximum texture size: 4096x4096
-
-Full traceback:
-  File "script.rpy", line 600, in script
-    jump scene2
-  File "/Volumes/renpy-8.2.1-sdk/renpy-8.2.1-sdk/renpy/ast.py", line 1698, in execute
-    rv = renpy.game.script.lookup(target)
-  File "/Volumes/renpy-8.2.1-sdk/renpy-8.2.1-sdk/renpy/script.py", line 1103, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'scene2'.
-
-While running game code:
-  File "script.rpy", line 600, in script
-    jump scene2
-ScriptError: could not find label 'scene2'.
+Screen sizes: virtual=(1280, 720) physical=(1440, 900) drawable=(2880, 1800)
+Maximum texture size: 4096x4096
