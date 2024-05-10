@@ -41,7 +41,6 @@ image fire exit = "images/fireExit.jpg"
 image fire exit on fire = "images/fireExitOnFire.jpg"
 image fire = "images/fireExitInFlames.jpg"
 image cinema fire = "images/theaterInFlames.jpg"
-image test = "images/test.png"
 
 ####Vo Changes 5/2/2024 added by N.
 
@@ -116,10 +115,9 @@ define player = Character("Me", color="#0000FF")
 
 
 label start:
+    
     "Hello World"
-    scene test.png
-    scene cinema
-    scene fireExit.jpg
+   
 
  #  voice "audio/main-story1.mp3"
     "Our main character, who is moving to the new apartment, is excited to start fresh and make new neighbor friends. 
@@ -282,6 +280,7 @@ label Scene2:
 ###primary scene for player, add more places
 
 label playerRoom: 
+    
     scene bedroomDay
     player "I guess I should start my day."
     scene bedroomDay
@@ -335,6 +334,7 @@ label scene3:
     show lock_cylinder
     player "I need to find a way to open this door."
     call screen Lockpicking_mini_game
+    
 
 
 screen Lockpicking_mini_game:
@@ -495,7 +495,8 @@ label scene11:
 
 
 label movies:
-    scene bg theater lobby
+    scene test
+    
     player "{i} I can't wait to see this movie. I've been hearing about it nonstop for days"
     player "{i} Hopefully it's as good as my landlord made it out to be"
     player "{i} Hmm I wonder if I should get a popcorn. Or maybe I could get some--"
@@ -518,7 +519,9 @@ label movies:
     miko "Are you getting popcorn?"
     player "..."
 
-    scene bg cinema
+    
+    scene cinema
+ 
     player "Are you ok with a spot in the back?"
     miko "Yea these seats are fine"
     player "So Miko, how are you liking it here so far?"
@@ -531,8 +534,9 @@ label movies:
     #...
 
     "The lights start to dim and the projector flashes on. After a few comericals and small talk with Miko the movie finally begins"
-    scene bg cinema movie
-    play audio "audio/actionMusic2.mp3" volume 0.5
+    scene cinema movie
+    
+    play sound "audio/actionMusic2.mp3" volume 0.5
     "The movie was amazing. The main character, agent Cody, was on a suicide mission. He had only one minute to get the hard drive and get out before the bomb would activate"
     "He moved his way around the room carefully and as fast as possible. He grabbed the hard drive with only a few seconds to spare"
     "However, he stumbles as he trys to race out"
@@ -541,15 +545,16 @@ label movies:
     "Now 3 seconds"
     "2 seconds"
     "1 second"
-    scene bg cinema explosion
-    play audio "audio/explosion.mp3" volume 0.5
+    scene cinema explosion
+    
+    play sound "audio/explosion.mp3" volume 0.5
     player "What the hell?!"
     "The screen exploded and quickly ingulfed in flames. Smoke started to fill the room"
     player "*Cough, cough* Miko, we need to get out of here now!"
-    show miko shocked 
     player "Come on!"
     "I turn around and race to the emergency exit"
-    scene bg fire exit
+    scene fire exit
+   
     "The fire was spreading fast, but I was able to dodge the flames and escape to the hall"
     player "We're going to be okay, there's a exit right there!"
     "I turn around to Miko and my stomach suddenly drops"
@@ -573,21 +578,25 @@ label saveHer:
     "Trying to build up the courage I think of agent Cody and how he would fight against the chances on his mission"
     "I then think how stupid I am to compare myself to a fictional character played by a guy who probably has his on stunt man"
     "Never the less, I run back into the theater"
-    scene bg cinema fire
-    play audio "audio/fire.mp3" volume 0.5
+    scene cinema fire
+  
+    play sound "audio/fire.mp3" volume 0.8
     "It's hard to see or breathe through the smoke as I run back in"
     player "Miko? Miko!"
     "I see Miko still in the back of the theater, trapped behind a small flame"
     show miko shocked
     miko "Please help me!"
     "I take off my jacket and use it to hit the flames"
-    "After a few seconds the flames are low enough from Miko to run across"
+    "After a few seconds the flames are low enough for Miko to run across"
     "I grab her hand and run back to the exit"
-    scene bg fireExit 
+    scene fire exit
+    
+    
     "We both run into the hall and straight to the exit"
-    #scene bg outside theater
+    #scene outside theater
     #More dialoge
-    jump scene2
+
+    jump Scene2
 
 
 label saveYourself:
@@ -596,13 +605,16 @@ label saveYourself:
     player "{i} I'm sure she will find a way out"
     player "{i} I barely know this girl anyway, I'm not going to risk my life for her"
     "Suddenly, out of nowhere, the flames cover the walls and floor"
-    scene bg fire exit on fire
+    scene fire exit on fire
+    
     player "What the hell?!"
     player "{i} How did the fire spread so fast??"
     "As if it were alive, the fire starts to chase me"
     player "AHHHHH what is going on?!"
-    scene bg fire 
+    scene fire 
+   
     player "AAAAAHHHHHHHH"
+    stop sound
     play sound "manScreamingLong.mp3" volume 0.8
     "You angered the flames with your selfishness and burned to death"
     jump death

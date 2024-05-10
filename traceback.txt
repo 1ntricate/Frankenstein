@@ -1,0 +1,22 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "script.rpy", line 600, in script
+    jump scene2
+ScriptError: could not find label 'scene2'.
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "script.rpy", line 600, in script
+    jump scene2
+  File "/Volumes/renpy-8.2.1-sdk/renpy-8.2.1-sdk/renpy/ast.py", line 1698, in execute
+    rv = renpy.game.script.lookup(target)
+  File "/Volumes/renpy-8.2.1-sdk/renpy-8.2.1-sdk/renpy/script.py", line 1103, in lookup
+    raise ScriptError("could not find label '%s'." % str(original))
+ScriptError: could not find label 'scene2'.
+
+macOS-14.3.1-arm64-arm-64bit arm64
+Ren'Py 8.2.1.24030407
+Frank 1.0
+Thu May  9 22:48:33 2024
