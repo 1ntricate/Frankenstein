@@ -37,6 +37,14 @@ image outside = "images/outside.jpg"
 image scenee = "images/sceneee.png" 
 image maindoor = "images/maindoor.png"
 image map = "images/CityMap.jpg"
+image theaterLobby = "images/MovieTheaterLobby.jpg"
+image theater = "images/cinema.jpg"
+image theaterMovie = "images/cinemaMovie.jpg"
+image theaterExplosion = "images/theaterExplosion.jpg"
+image fireExit = "images/fireExit.jpg"
+image fireExitOnFire = "images/fireExitOnFire.jpg"
+image fire = "images/fireExitInFlames.jpg"
+image theaterFire = "images/theaterInFlames.jpg"
 
 #### VoHongVy Changes 5/2/2024 added by N.
 image parkscene:
@@ -62,9 +70,12 @@ image office2:
     size(1920,1080)
 
 ########## Characters
+image miko = "images/mikoDefault.png"
 image miko Happy ="images/mikoHappy.png"
 image miko Sad = "images/mikoSad.png"
 image miko Creepy = "images/mikoCreepy.png"
+image miko Shocked = "images/mikoShocked.png"
+image miko Bloody = "images/mikoBloody.png"
 
 ###Soplayer add by Vo May 7
 image miko Laugh = "images/mikolaugh.png"
@@ -156,12 +167,12 @@ label Scene0:
             scene raining
             show player Suprised
             player "Wait Whatttt the hell "
-            player "Maybe let moving tommorrow"
+            player "Maybe let move in tommorrow"
             scene morning
-        "YAYYY, Let's move to new house. I'm so excited...":
+        "YAYYY, Let's move in to my new house. I'm so excited...":
             player "Go ! Go !"
     show player Ok 
-    player "Finally Done"
+    player "Finally Done."
     show player Move
     pause 0.5
     scene scenee
@@ -170,11 +181,11 @@ label Scene0:
     player "AHH! Today such an busy day !!!"
     player "Should I take a nap?"
     menu: 
-        "So lazy.. Maybe gonna take a nap then":
+        "So lazy.. Maybe gonna take a nap then.":
             show player Nap
             player "Z Z Z Z"
-            player "Nap time is the best"
-        "No, Maybe I'll whip up a drink in the kitchen":
+            player "Nap time is the best."
+        "No, Maybe I'll whip up a drink in the kitchen.":
             jump kitchen
 
 ######Drinking Scene
@@ -182,20 +193,20 @@ label kitchen:
     scene kitchen
     "player" "What should I drink tonight?"
     menu: 
-        "Making Orange juice sounds healthy":
+        "Making Orange juice sounds healthy.":
             "player" "......"
             show player Make
-            "player" "Waiting for orange juice"
-            "player" "Yay"
+            "player" "Waiting for orange juice."
+            "player" "Yay!"
             show player OJ
-            "player" "Hmmm.. Delicicous"
+            "player" "Hmmm.. Delicicous."
             "player" "Perfect"
-        "Cocktail or Red Wine, etc. Sounds not bad":
+        "Cocktail or Red Wine, etc. Sounds not bad.":
             scene wine 
             pause 1.0
             scene kitchen
             "player" "Ahhhhhhh Shit...."
-            "player" "I should not drink this"
+            "player" "I should not drink this."
             show player Shock
             pause 1.0
 
@@ -218,13 +229,13 @@ label Scene1:
         "Go and open the door to check.":
             show player Ok
             player "...."
-            player "Alright, let check it, just in case"
+            player "Alright, let check it, just in case."
         "Nevermind, skip it and continue sleep.":
             play sound "audio/knock.mp3" volume 0.8
             "???" "* Knock Knock *"
             show player Annoy
             player "Ahh!!! They're knocking again!!!! "
-            player "Maybe I should check"
+            player "Maybe I should check."
 
     "???" "Anyone there?"
 
@@ -261,7 +272,7 @@ label mikoRoom:
     scene mikoRoom
     show miko Happy
 
-    miko "Welcome to my room"
+    miko "Welcome to my room!"
     jump Scene2
 
 label stabbed:
@@ -334,9 +345,9 @@ label work2:
     lucy "Who?"
     player "Miko...my neighbor?"
     lucy "I have never heard of her. I'm sorry, I don't know what you're talking about."
-    player "Oh, thats strange. I ran into her in the office and she said she was here for interview."
-    lucy " I don't know what to tell you, we're not even hiring right now"
-    lucy " Anyways, it's a good thing you're here. I need you to stay in late tonight"
+    player "Oh, thats strange. I ran into her in the office and she said she was here for an interview."
+    lucy "I don't know what to tell you, we're not even hiring right now"
+    lucy "Anyways, it's a good thing you're here. I need you to stay in late tonight"
     show player Annoy at center with dissolve
     player "What?... {i} Ok."
 
@@ -353,8 +364,8 @@ label mikoTime:
 ####touching soplayer grass
 
 label outside: 
-    scene outside
-    player "Wow it sure it nice outside today"
+    #scene outside
+    player "Wow it sure is nice outside today"
 
     jump Scene2
 
@@ -498,7 +509,7 @@ label scene6:
     show miko Creepy at center
     player "Heyyyy Miko... What's going on?"
     miko "Hey, I just wanted to apologize about the noise earlier."
-    miko " I was trying smash a spider and I ended up knocking over some stuff."
+    miko "I was trying smash a spider and I ended up knocking over some stuff."
     miko "I'm sorry if I woke you up."
 
     menu: 
@@ -506,7 +517,11 @@ label scene6:
             miko "Oh, okay. Well, I'm gonna head out then, goodnight!"
             player "Goodnight Miko."
             play sound "audio/sharp.mp3"
+            show miko Bloody
+            show player Suprised with dissolve
+            miko "You're a bad liar."
             scene black with hpunch
+            play sound "audio/screamWoman.mp3"
             call screen Death
         "Actually, I heard everything and I found a bloody knife in your room.":
             player "I'm calling the police."
@@ -527,7 +542,9 @@ label scene7:
         "I don't believe you, I'm calling the police.":
             miko "You leave me no choice then."
             play sound "audio/sharp.mp3"
+            show miko Bloody
             scene black with hpunch
+            play sound "audio/screamWoman.mp3"
             call screen Death
             return
         "I believe you":
@@ -545,7 +562,7 @@ screen goodEnding:
 
 # MAP Screen
 screen MapUI:
-    add  "CityMap2.jpg"
+    add  "CityMap.jpg"
 
     imagebutton:
         focus_mask True
@@ -567,6 +584,130 @@ screen MapUI:
         idle "Park.png"
         hover "Park_hover.png"
         action Jump("scene10")
+
+label scene8:
+    scene theaterLobby
+    player "{i} I can't wait to see this movie. I've been hearing about it nonstop for days"
+    player "{i} Hopefully it's as good as my landlord made it out to be"
+    player "{i} Hmm I wonder if I should get a popcorn. Or maybe I could get some--"
+    player "..."
+    player "Miko?"
+    show miko Creepy
+    miko "Oh hi there. What a coincidence that we are both here at the same time"
+    show miko
+    player "Yea that's pretty crazy haha. What movie are you here to see?"
+    show miko Creepy
+    miko "Movie?"
+    player "Aren't you here to see a movie?"
+    miko "...Oh yea! Yea um, what movie are you here to see?"
+    player "'Agents in Australia'..."
+    #show miko happy
+    miko "Oh my gosh! Me too!"
+    player "Wow really? What a coincidence"
+    show miko
+    miko "That is so weird"
+    miko "Well since we are going to see the same movie, maybe we can see it together?"
+    player "Um yea sure. Would you like any popcorn?"
+    show miko Creepy
+    miko "Are you getting popcorn?"
+    player "..."
+
+    scene cinema
+    player "Are you ok with a spot in the back?"
+    show miko
+    miko "Yea these seats are fine"
+    player "So Miko, how are you liking it here so far?"
+    #show miko Happy
+    miko "Oh it's been great. I really like the sunny weather and everyone I met has been really great"
+    player "Have you met more people recently?"
+    miko "No but I've met you"
+    player "Oh haha"
+    hide miko
+
+    "The lights start to dim and the projector flashes on. After a few comericals and small talk with Miko the movie finally begins"
+    scene theaterMovie
+
+    play sound "audio/actionMusic2.mp3" volume 0.5
+    "The movie was amazing. The main character, agent Cody, was on a suicide mission. He had only one minute to get the hard drive and get out before the bomb would activate"
+    "He moved his way around the room carefully and as fast as possible. He grabbed the hard drive with only a few seconds to spare"
+    "However, he stumbles as he trys to race out"
+    "He only has 10 seconds now as he picks himself up"
+    "He starts running out of the room and down the stairs"
+    "Now 3 seconds"
+    "2 seconds"
+    "1 second"
+    scene theaterExplosion
+    
+    play sound "audio/explosion.mp3" volume 0.5
+    player "What the hell?!"
+    "The screen exploded and quickly ingulfed in flames. Smoke started to fill the room"
+    player "*Cough, cough* Miko, we need to get out of here now!"
+    player "Come on!"
+    "I turn around and race to the emergency exit"
+    scene fireExit
+   
+    "The fire was spreading fast, but I was able to dodge the flames and escape to the hall"
+    player "We're going to be okay, there's a exit right there!"
+    "I turn around to Miko and my stomach suddenly drops"
+    player "Miko?!"
+    "Miko was wasn't there! I assumed she was right behind me"
+    player "She's still in the theater!"
+    "I looked back at the theater, seeing the flames starting to reach the hall"
+    player "{i} I was barely able to get out before, I'm not sure if I'll be able to get out if I go back in"
+
+menu:
+
+    "I need to go help her":
+        jump saveHer
+
+    "I need to save myself":
+        jump saveYourself
+
+label saveHer:
+
+    player "I can't leave her there!"
+    "Trying to build up the courage I think of agent Cody and how he would fight against the chances on his mission"
+    "I then think how stupid I am to compare myself to a fictional character played by a guy who probably has his on stunt man"
+    "Never the less, I run back into the theater"
+    scene theaterFire
+  
+    play sound "audio/fire.mp3" volume 0.8
+    "It's hard to see or breathe through the smoke as I run back in"
+    player "Miko? Miko!"
+    "I see Miko still in the back of the theater, trapped behind a small flame"
+    show miko Shocked
+    miko "Please help me!"
+    "I take off my jacket and use it to hit the flames"
+    "After a few seconds the flames are low enough for Miko to run across"
+    "I grab her hand and run back to the exit"
+    scene fireExit
+    
+    
+    "We both run into the hall and straight to the exit"
+    #scene outside theater
+    #More dialoge
+
+    jump Scene2
+
+label saveYourself:
+
+    player "There no way I'm going back in there!"
+    player "{i} I'm sure she will find a way out"
+    player "{i} I barely know this girl anyway, I'm not going to risk my life for her"
+    "Suddenly, out of nowhere, the flames cover the walls and floor"
+    scene fireExitOnFire
+    
+    player "What the hell?!"
+    player "{i} How did the fire spread so fast??"
+    "As if it were alive, the fire starts to chase me"
+    player "AHHHHH what is going on?!"
+    scene fire 
+   
+    player "AAAAAHHHHHHHH"
+    stop sound
+    play sound "manScreamingLong.mp3" volume 0.8
+    "You angered the flames with your selfishness and burned to death"
+    jump death
 
 
 label scene10:
