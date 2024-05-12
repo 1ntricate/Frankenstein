@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "script.rpy", line 43: expected '=' not found.
-    image theater explosion "images/theaterExplosion.jpg"
-                            ^
+File "script.rpy", line 170: end of line expected.
+    play music "audio/happyBackgroundMusic.mp3" volume 0.1
+                                                ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Fri May 10 11:13:12 2024
+Sat May 11 23:00:14 2024

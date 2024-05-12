@@ -26,13 +26,14 @@ init python:
     Cursor = renpy.curry(cursor)
 
 ########### Backgrounds
-image bedroom = "images/bedroom.png"
+image bedroom = "images/bedroom.jpg"
 image outsideapart = "images/outsideapartment.png"
 image gaplayerover = "images/gamerover.jpg"
 image office = "images/office.jpg"
-image mikoRoom = "images/mikoRoom.jpg"
+image mikoRoom = "images/mikosRoomNight.jpg"
+image mikoRoomDay = "images/mikosRoomDay.jpg"
 image stabbed = "images/stabbed.png"
-image bedroomDay = "images/bedroomDay.png"
+image bedroomDay = "images/bedroomDay.jpg"
 image outside = "images/outside.jpg"
 image scenee = "images/sceneee.png" 
 image maindoor = "images/maindoor.png"
@@ -76,10 +77,11 @@ image miko Sad = "images/mikoSad.png"
 image miko Creepy = "images/mikoCreepy.png"
 image miko Shocked = "images/mikoShocked.png"
 image miko Bloody = "images/mikoBloody.png"
+image miko Scary = "images/mikoScary.png"
 
 ###Soplayer add by Vo May 7
-image miko Laugh = "images/mikolaugh.png"
-image miko Normal = "images/mikonormal.png"
+#image miko Laugh = "images/mikolaugh.png"
+#image miko Normal = "images/mikonormal.png"
 ### VoHongVy Changes 5/2/2024
 image player Move: 
     "images/playerMove.png" 
@@ -150,18 +152,27 @@ define e = Character('Virus', color="#c8ffc8")
 define lucy = Character("Lucy", color="#00ca28")
 
 label start:
-    voice "audio/main-story1.mp3"
-    "Our main character, who is moving to the new apartplayernt, is excited to start fresh and make new neighbor friends. 
-    A mysterious story ensues when strange occurrences begin happening in the building,leading our characters to uncover 
-    dark secrets hidden within the walls of their new home. After mvoing into the new home, he is so tired, he felt sleepy and 
-    woke up to hear a mysterious laugh and somone knocking on his door, sparking a sense of unease within him."
+
+    play sound "audio/storyAudioPart1.mp3"
+    "Our main character, who is moving in to his new apartment, is excited to start fresh and make new neighbor friends."
+    stop audio 
+    play sound "audio/storyAudioPart2.mp3"
+    "A mysterious story ensues when strange occurrences begin happening in the building, leading our character to uncover dark secrets hidden within the walls of his new home."
+    stop audio 
+    play sound "audio/storyAudioPart3.mp3"
+    "After moving into the new home, he is so tired, he felt sleepy and woke up to hear a mysterious laugh and someone knocking on his door, sparking a sense of unease within him."
+    stop audio
 
 ####Prologue Scene
 label Scene0:
+    stop audio
 #####Moving Scene
     scene morning
-    menu:
+    stop audio
+    play music "audio/happyBackgroundMusic.mp3" volume 0.1
+    menu:      
         "Waaahhh, It such a beautiful day outside":
+            stop audio
             play sound "audio/rain.wav" volume 0.8
             pause 0.5
             scene raining
@@ -214,6 +225,7 @@ label kitchen:
 
 label Scene1:
     scene maindoor
+    stop audio
     play sound "audio/knock.mp3" volume 0.8
     play music "audio/spooky.mp3" volume 0.5
     "???" "*Knock Knock*"
@@ -242,9 +254,12 @@ label Scene1:
     scene outsideapart
     player "There seems to be no one?"
     player "It might have been a ghost..."
-    show miko Happy
+    show miko
+    #show miko Happy
+    play sound "audio/hiSoundEffect.mp3" volume 1.0
     miko "Hello Neighbor!"
-
+    stop audio
+    play sound "audio/supriseSoundEffect.mp3"
     player "Ahhh!! Who are you?"
 
     miko "Hello, I am Miko.  I just recently moved in today."
@@ -257,7 +272,7 @@ label Scene1:
     show miko Sad
     miko "Pleaseeee!! It will only take like 5 mins!!"
     player "{i} Should I help her?  She is a stranger though..."
-    player "{i} Mom always told player not trust strangers.."
+    player "{i} Mom always told me not to trust strangers.."
     player "{i} Although, She is kind of cute."
 
 menu:
@@ -266,17 +281,39 @@ menu:
         jump mikoRoom
 
     "Nah... I am going to bed.":
+        show miko Creepy
+        pause 1.0
         jump stabbed
 
 label mikoRoom:
     scene mikoRoom
-    show miko Happy
-
+    show miko
     miko "Welcome to my room!"
+    player "Looks nice. I'll put the last box right over here."
+    #show miko happy
+    miko "Thank you so much!"
+    player "Yea it's no problem..."
+    #show miko laugh
+    play sound "audio/mikoLaugh.mp3"
+    miko "Haha you're funny!"
+    player "What did I say that wa--"
+    #show miko Happy
+    miko "I'm really glad me met. I can tell we are going to become really close."
+    player "Um yea sure."
+    player "So anways, I'm going to go now."
+    show miko Creepy
+    miko "..."
+    player "?"
+    #show miko Happy
+    show miko
+    miko "Oh yea of course, it's pretty late."
+    miko "Thanks again for all your help!"
+
     jump Scene2
 
 label stabbed:
     scene stabbed
+    play sound "audio/sharp.mp3"
     "You've been stabbed..."
     miko "Maybe you should have helped me..."
     scene stabbed
@@ -285,6 +322,7 @@ label stabbed:
 
 label death:
         scene gameover
+        play sound "audio/glitch.mp3" volume 0.8
         "Game Over"
         menu:
             "Return to Tile Screen":
@@ -292,6 +330,7 @@ label death:
         
 label Scene2:
     scene bedroom
+    play music "audio/happyBackgroundMusic.mp3" volume 0.1
     player "I'm finally back in my room."
     player "I am wondering if Miko is feeling at home in her new apartment."
     player "I am feeling a bit tired now, I guess it's time to sleep"
@@ -325,7 +364,7 @@ label work:
     player "*** Hours later ***"
     show player OJ at center
     player "Man.. 5 p.m can't come soon enough"
-    show miko Happy at right with moveinright 
+    show miko at right with moveinright 
     show player Shock at center with dissolve
     miko "Heyyyy neighbor!!! I though that was you!!"
     show player Annoy at center with dissolve
@@ -333,7 +372,7 @@ label work:
     miko  "{i} Ohhh, I'm here for an interview."
     player "Oh, I see. Good luck with that."
     miko "Thank you, It was nice running into you. Bye"
-    hide miko Happy with dissolve
+    hide miko with dissolve
     show player Ok with dissolve
     player "{i} That's strange, I didn't know Lucy was hiring..."
 
@@ -355,9 +394,71 @@ label work2:
 ####miko scene
 
 label mikoTime:
-    scene mikoRoom
-    show miko Happy
-    miko "Ah hello player~ I've been waiting for you"
+
+    scene mikoRoomDay
+    #show miko Happy
+    play sound "audio/knock.mp3"
+    player "Hey Miko, it's me you're neighbor."
+    pause 1.0
+    show miko Shocked at left with moveinleft
+    pause 0.5
+    show miko Creepy
+    miko "!"
+    show miko
+    miko "Ah hello neighbor~ I've been waiting for you"
+    miko "Come on in!"
+    show player Ok at right with moveinright
+    player "Hey Miko, how have you been?"
+    miko "Oh I've been great."
+    show miko Creepy
+    miko "Especially now that you're here."
+    show miko 
+    miko "I'm making some tea, would you like some?"
+    player "That would be nice, thanks!"
+    player "By the way I don't think I ever asked, what made you want to move here?"
+    show miko Scary
+    show miko
+    miko "..."
+    player "Oh sorry! I didn't mean to be noisy."
+    miko "No, it's fine."
+    miko "There was someone who kept giving me trouble, so I decided that I needed to get away"
+    player "Oh my god, I'm sorry. Who was bothering you, some crazy ex boyfriend?"
+    miko "It was actually his mother. She was always so persistent..."
+    player "Oh? It's just his mom that's bothering you?"
+    show miko Creepy
+    miko "Yea. He isn't a problem, he was easy to deal with."
+    show miko
+    player "What do you mean by th-"
+    play sound "audio/teaKettle.mp3"
+    miko "Oh the tea is ready! One second."
+    hide miko at left with moveoutleft
+    player "... Hmm I wonder what that's about."
+    play sound "audio/bangingOnDoor.mp3" volume 1.0
+    pause 2.0
+    player "What's that sound? It sounds like someones banging on a door."
+    play sound "audio/help.mp3" volume 0.1
+    pause 5.0
+    player "!"
+    player "Is that someone shouting for help?!"
+    player " It sound like it's coming from Miko's closet..."
+    show player Suprised at center with moveinright
+    show miko at left with moveinleft
+    miko "Here is your t-"
+    show miko Creepy
+    miko "..."
+    miko "What are you doing?"
+    show player Ok
+    player "Oh uh sorry, I just though I hea-- umm, actually I think I should get going."
+    miko "..."
+    miko "But you just got here..."
+    player "Yea but I just remembered that I have a um online meeting in a couple minutes that I should probably get ready for."
+    miko "..."
+    player "Thanks for having me over."
+    miko "Yea, it's no problem."
+    hide player Ok at center with moveoutright
+    show miko Scary
+    pause 3.0
+
     scene mikoRoom
 
     jump Scene2
@@ -371,12 +472,15 @@ label outside:
 
 #### Scene leading to Good or Bad Ending
 label Scene4:
+    stop music
     scene bedroom
     show player Relax at center 
     play sound "audio/muffled_arguing.mp3"
     "???" "*ARGUING*"
     show player Ok2 at center
+    
     player "Huh?... What is that noise?"
+    play music "audio/spooky.mp3"
 
     player "Is that coming from Mikos room?"
     player "...."
@@ -384,6 +488,8 @@ label Scene4:
     play sound "audio/wall_impact.mp3"
 
     show player Annoy with vpunch
+    pause 0.2
+    play sound "audio/supriseSoundEffect.mp3"
     player "What was that?!" 
     player "I better go check on her."
     hide player Annoy with moveinright
@@ -493,7 +599,9 @@ transform alpha_disolve:
 
 label scene5:
     scene bedroom
+    stop audio
     show player Suprised at center with moveinleft
+    play sound "audio/supriseSoundEffect.mp3"
     player "Omg...What do I do..."
     player "{i} Do I call the police or..."
     play audio "audio/knocking.mp3"
@@ -514,17 +622,23 @@ label scene6:
 
     menu: 
         "Oh, no worries, I didn't even hear anything.":
+            show miko
             miko "Oh, okay. Well, I'm gonna head out then, goodnight!"
             player "Goodnight Miko."
             play sound "audio/sharp.mp3"
+            show player Suprised
             show miko Bloody
-            show player Suprised with dissolve
+            show player Tired
+            pause 3.0
+            hide player Tired at left with moveoutbottom
             miko "You're a bad liar."
             scene black with hpunch
             play sound "audio/screamWoman.mp3"
             call screen Death
+            return
         "Actually, I heard everything and I found a bloody knife in your room.":
             player "I'm calling the police."
+            show miko Scary
             miko "Wait, what? No, please don't call the police."
             miko "I can explain everything."
             player "Explain what? Why is there a bloody knife in your room?"
@@ -536,20 +650,98 @@ label scene6:
 # Ok this is trash I know but you get it
 label scene7:
     scene bedroom
-    show miko Creepy at center
+    show miko Sad at center
+    miko "The truth is I had no choice."
+    miko "Yes, I killed my ex, but he was a bad guy!"
     miko "I'm not a bad person, I swear."
+    miko "Please, I need you to believe me!"
+    
     menu: 
         "I don't believe you, I'm calling the police.":
+            show miko Creepy
             miko "You leave me no choice then."
             play sound "audio/sharp.mp3"
             show miko Bloody
             scene black with hpunch
             play sound "audio/screamWoman.mp3"
             call screen Death
-            return
+
         "I believe you":
+            #show miko Happy
+            show miko
             miko "Thank you, I knew you would understand."
-            jump ending
+            show miko Creepy
+            miko "I love you."
+
+            menu:
+                "I love you too":
+                    show miko Shocked
+                    pause 3.0
+                    show miko Creepy
+                    miko "I knew you felt the same way!"
+                    miko "But first there's something I need to know."
+                    miko "This is really important..."
+                    player "what is it?"
+                    miko "Cats or dogs?"
+                    player "Huh?"
+                    miko "Do you prefer cats or dogs?"
+                    player "Oh uhh..."
+                    
+                    menu:
+                        "Dogs":
+                            miko "..."
+                            show miko
+                            miko "Me too!"
+                            miko "we're perfect together!"
+                            jump ending
+                            return
+
+                        "Cats":
+                            miko "..."
+                            miko "I thought you were better than that..."
+                            miko "My ex prefered cats too... you guys are such losers."
+                            miko "Guess I'm gonna have to look for another guy."
+                            play sound "audio/sharp.mp3"
+                            show miko Bloody
+                            scene black with hpunch
+                            play sound "audio/screamWoman.mp3"
+                            pause 3.0
+                            call screen Death
+                            return
+
+                "You're crazy, get help":
+                    pause 1.0
+                    show miko
+                    pause 2.0
+                    miko "Well then..."
+                    show miko Scary
+                    miko "After everything I've done for you..."
+                    player "What do you mean? What have you done for me?"
+                    play sound "audio/screamWoman.mp3"
+                    miko "I've done everything for you!"
+                    miko "I killed you're boss because she kept making you work late!"
+                    miko "I blew up that stupid theater to get back at your old stupid boss for firing you!"
+                    miko "I even killed the delivery man who tried to deliver you your manga so you wouldn't have to read that brain poision!"
+                    player "Woah what you did all of th- whait you took my manga?"
+                    player "Look, I never asked you to do any of those things. I thi-"
+                    miko "Shut up!"
+                    player "..."
+                    show miko Sad
+                    miko "Just leave."
+                    player "You're not going to kill me?"
+                    miko "No, I'm not a psycho."
+                    miko "I care about you, I would never hurt you."
+                    player "Really?"
+                    show miko Scary
+                    miko "No you moron!"
+                    play sound "audio/sharp.mp3"
+                    show miko Bloody
+                    scene black with hpunch
+                    play sound "audio/screamWoman.mp3"
+                    pause 3.0
+                    call screen Death
+                    return
+
 
 screen goodEnding:  
         
@@ -558,6 +750,7 @@ screen goodEnding:
         text "THE END" color "#ff0000"
     
     textbutton "QUIT" action Return()
+    #Error where when "QUIT" is clicked takes you to movie scene
 
 
 # MAP Screen
@@ -586,11 +779,14 @@ screen MapUI:
         action Jump("scene10")
 
 label scene8:
+
     scene theaterLobby
     player "{i} I can't wait to see this movie. I've been hearing about it nonstop for days"
     player "{i} Hopefully it's as good as my landlord made it out to be"
     player "{i} Hmm I wonder if I should get a popcorn. Or maybe I could get some--"
     player "..."
+    stop audio
+    play music "audio/spooky.mp3" volume 0.5
     player "Miko?"
     show miko Creepy
     miko "Oh hi there. What a coincidence that we are both here at the same time"
@@ -622,11 +818,22 @@ label scene8:
     player "Have you met more people recently?"
     miko "No but I've met you"
     player "Oh haha"
+    miko "This is a nice theater."
+    player "Oh I know right. I actually use to work here for a bit"
+    miko "That must have been fun!"
+    player "Eh not really, the manager here is actually kind of a jerk. I ended up getting fired on my fourth week."
+    show miko Creepy
+    miko "I know"
+    player "Huh?"
+    show miko Creepy
+    miko "I mean... I know right"
+    show miko
+    miko "Bosses are the worst."
+    player "Oh yea, they really are sometimes haha."
     hide miko
-
     "The lights start to dim and the projector flashes on. After a few comericals and small talk with Miko the movie finally begins"
-    scene theaterMovie
 
+    scene theaterMovie
     play sound "audio/actionMusic2.mp3" volume 0.5
     "The movie was amazing. The main character, agent Cody, was on a suicide mission. He had only one minute to get the hard drive and get out before the bomb would activate"
     "He moved his way around the room carefully and as fast as possible. He grabbed the hard drive with only a few seconds to spare"
@@ -636,9 +843,11 @@ label scene8:
     "Now 3 seconds"
     "2 seconds"
     "1 second"
+
     scene theaterExplosion
-    
     play sound "audio/explosion.mp3" volume 0.5
+    pause 3.0
+    play sound "audio/supriseSoundEffect.mp3"
     player "What the hell?!"
     "The screen exploded and quickly ingulfed in flames. Smoke started to fill the room"
     player "*Cough, cough* Miko, we need to get out of here now!"
@@ -681,11 +890,7 @@ label saveHer:
     "After a few seconds the flames are low enough for Miko to run across"
     "I grab her hand and run back to the exit"
     scene fireExit
-    
-    
     "We both run into the hall and straight to the exit"
-    #scene outside theater
-    #More dialoge
 
     jump Scene2
 
@@ -712,12 +917,13 @@ label saveYourself:
 
 label scene10:
     scene phone
-    show miko Happy 
+    #show miko Happy
+    show miko
     miko "Do you wanna hang out to the park with player?"
     show player Suprised
     menu: 
         "Yes, It'll be fun":
-            show miko Laugh 
+            #show miko Laugh 
             miko "okay, let's go"
         "No, I'm kinda lazy":
             show player No
@@ -729,9 +935,9 @@ label scene10:
 
 label ParkThemerScene:
     scene parkscene
-    show miko Normal
+    show miko
     miko "Let's play a mini game!!"
-    show miko Happy
+    #show miko Happy
     miko "I want to play archery game over there"
     show player Ok2
     player "Okay"
@@ -740,23 +946,23 @@ label ParkThemerScene:
 label Archery:
     play music ("main-menu-theme.mp3")
     scene fon_les
-    show miko Happy
+    #show miko Happy
     miko "Help me playyy!!"
     call begin_hunt from _call_begin_hunt
 
     if targets_hit == 0: # on 0 hits
         $ cursor() #reset broom
         scene fon_les with dissolve
-        show miko Happy
+        #show miko Happy
         miko "Let's try again together"
         scene fon_les with dissolve
-        show miko Happy
+        #show miko Happy
         
     if targets_hit > 0: # on more than 0 hits
         $ cursor() #resets the broom
         e "[targets_hit] tiplayers hit. "
         scene fon_les with dissolve
-        show miko Laugh
+        #show miko Laugh
         miko "Wonderful, Thank you!"   
  
     jump Scene2
