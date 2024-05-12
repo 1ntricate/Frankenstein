@@ -665,6 +665,7 @@ label scene7:
             scene black with hpunch
             play sound "audio/screamWoman.mp3"
             call screen Death
+            return
 
         "I believe you":
             #show miko Happy
