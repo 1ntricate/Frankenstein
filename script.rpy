@@ -202,16 +202,16 @@ label Scene0:
 ######Drinking Scene
 label kitchen:
     scene kitchen
-    "player" "What should I drink tonight?"
+    player "What should I drink tonight?"
     menu: 
         "Making Orange juice sounds healthy.":
-            "player" "......"
+            player "......"
             show player Make
-            "player" "Waiting for orange juice."
-            "player" "Yay!"
+            player "Waiting for orange juice."
+            player "Yay!"
             show player OJ
-            "player" "Hmmm.. Delicicous."
-            "player" "Perfect"
+            player "Hmmm.. Delicicous."
+            player" "Perfect"
         "Cocktail or Red Wine, etc. Sounds not bad.":
             scene wine 
             pause 1.0
