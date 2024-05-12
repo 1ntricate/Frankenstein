@@ -211,13 +211,13 @@ label kitchen:
             player "Yay!"
             show player OJ
             player "Hmmm.. Delicicous."
-            player" "Perfect"
+            player "Perfect"
         "Cocktail or Red Wine, etc. Sounds not bad.":
             scene wine 
             pause 1.0
             scene kitchen
-            "player" "Ahhhhhhh Shit...."
-            "player" "I should not drink this."
+            player "Ahhhhhhh Shit...."
+            player "I should not drink this."
             show player Shock
             pause 1.0
 
