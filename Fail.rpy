@@ -1,6 +1,6 @@
 label Fail:
     show  player Suprised
-    show miko normal at left with moveinleft
+    show miko Scary at left with moveinleft
     miko "You're not supposed to be in here..."
     miko "I'm sorry, but I can't let you leave."
     play sound "audio/sharp.mp3"
